@@ -1,0 +1,30 @@
+<header>
+	<div class="container-lg">
+		<nav id="navbar-menu" class="navbar navbar-dark justify-content-between justify-content-lg-center px-0">
+			<a class="navbar-brand d-lg-none" href="{{  function('home_url') }}"><img src="{{ logo.link }}" width="120" class="d-inline-block align-top" alt="{{ logo.alt }}" loading="lazy"></a>
+  			<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navMobile" aria-controls="navMobile" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+			<div class="collapse navbar-collapse" id="navMobile">
+    			<ul class="navbar-nav mr-auto">
+				{% for key,item in menu.items %}
+					{% if item.link == '#phone-model' %}
+						<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="{{ item.link }}"><i class="fas {{ icon[key] }}"></i> {{ item }}</a></li>
+					{% else %}
+						<li class="nav-item"><a class="nav-link href" href="{{ item.link }}"><i class="fas {{ icon[key] }}"></i> {{ item }}</a></li>
+					{% endif %}
+				{% endfor %}
+				</ul>
+			</div>
+			<ul class="nav d-none d-lg-inline-flex">
+			{% for item in menu.items %}
+				{% if item.link == '#phone-model' %}
+					<li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Заказть звонок"><a class="nav-link" href="#" data-toggle="modal" data-target="{{ item.link }}">{{ item }}</a></li>
+				{% else %}
+					<li class="nav-item"><a class="nav-link href" href="{{ item.link }}">{{ item }}</a></li>
+				{% endif %}
+			{% endfor %}
+			</ul>
+		</nav>
+	</div>
+</header>

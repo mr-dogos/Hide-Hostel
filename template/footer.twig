@@ -1,0 +1,93 @@
+<footer>
+	<div class="container-lg">
+		<div class="row">
+			<article class="col-lg-4">
+				<h3 class="section-title">ИНФОРМАЦИЯ</h3>
+				<div class="footer_info">
+					<p>{{ footer.information }}</p>
+				</div>
+			</article>
+			<article class="col-lg-4">
+				<h3 class="section-title">КОНТАТКТЫ</h3>
+				<div class="footer_contact">
+					<p><a href="tel:{{ footer.contact.phone.href }}" data-toggle="tooltip" data-placement="top" title="{{ footer.contact.phone.title }}"><i class="{{ footer.contact.phone.icon }}"></i> &nbsp; {{ footer.contact.phone.href }}</a></p>
+					<p><a href="mailto:{{ footer.contact.email.href }}" data-toggle="tooltip" data-placement="top" title="{{ footer.contact.email.title }}"><i class="{{ footer.contact.email.icon }}"></i> &nbsp; {{ footer.contact.email.href }}</a></p>
+					<p data-toggle="tooltip" data-placement="top" title="{{ footer.contact.addr.title }}"> <i class="{{ footer.contact.addr.icon }}"></i> &nbsp; {{ footer.contact.addr.href }}</p>
+				</div>
+			</article>
+			<article class="col-lg-4">
+				<h3 class="section-title">СОЦИАЛЬНЫЕ СЕТИ</h3>
+				<ul class="footer_social nav">
+					<li class="nav-item"><a href="{{ footer.social.vk.href }}" target="_blank"><i class="{{ footer.social.vk.icon }}"></i></a></li>
+					<li class="nav-item"><a href="{{ footer.social.fbook.href }}" target="_blank"><i class="{{ footer.social.fbook.icon }}"></i></a></li>
+					<li class="nav-item"><a href="{{ footer.social.insta.href }}" target="_blank"><i class="{{ footer.social.insta.icon }}"></i></a></li>
+				</ul>
+			</article>
+		</div>
+		<div class="footer_copright"><span> Copyright &copy; {{ "now"|date('Y') }} <a href="{{ function('home_url') }}">{{ bloginfo( 'name' ) }}</a> All Rights Reserved.</span></div>
+	</div>
+</footer>
+{{ function('wp_footer') }}
+<!-- Modal -->
+<div class="modal fade" id="service-model" tabindex="-1" aria-labelledby="serviceLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+    	<div class="modal-content bg-dark text-white">
+      		<div class="modal-header bg-warning text-dark">
+        		<h5 class="modal-title" id="serviceLabel"></h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+      		<div class="modal-body"></div>
+    	</div>
+	</div>
+</div>
+<div class="modal fade" id="info-model" tabindex="-1" aria-labelledby="infoLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+    	<div class="modal-content bg-while text-dark">
+      		<div class="modal-header bg-success text-light">
+        		<h5 class="modal-title" id="infoLabel">{{ footer.model.title_info }}</h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+      		<div class="modal-body">
+				<div class="alert alert-light pt-1" role="alert">
+  					<p class="text-success"></p>
+				</div>
+				<button type="button" class="btn btn-secondary float-right" data-dismiss="modal">{{ footer.model.button_close }}</button>
+			</div>
+    	</div>
+	</div>
+</div>
+<div class="modal fade" id="phone-model" tabindex="-1" aria-labelledby="phoneLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+    	<div class="modal-content bg-light text-dark">
+      		<div class="modal-header bg-warning text-dark">
+        		<h5 class="modal-title" id="phoneLabel">{{ footer.model.title }}</h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+			<form id="phone-form">
+      		<div class="modal-body">
+					<div class="form-group">
+    					<label for="item_name">{{ footer.model.name }}</label>
+    					<input type="text" class="form-control" id="item_name" placeholder="{{ footer.model.name_holder }}" required>
+						<div class="invalid-feedback">
+							{{ footer.model.name_invalid }}
+      					</div>
+  					</div>
+					<div class="form-group">
+    					<label for="item_phone">{{ footer.model.phone }}</label>
+    					<input type="tel" class="form-control" id="item_phone" placeholder="{{ footer.model.phone_holder }}" required>
+  					</div>
+      		</div>
+			<div class="modal-footer">
+        		<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ footer.model.button }}</button>
+        		<button type="submit" class="btn btn-warning"><i class="{{ footer.model.icon }}"></i> {{ footer.model.submit }}</button>
+      		</div>
+			</form>
+    	</div>
+	</div>
+</div>

@@ -1,0 +1,159 @@
+{% extends "template/main/template.twig" %}
+{% block content %}
+<div class="content-page">
+    <main id="main" class="site-main">
+		<section id="slider" class="bg-section">
+			<div class="bg-section_container slider d-flex justify-content-center align-items-center" style="background-image: url({{ slider.background }});">
+				<div class="container-lg">
+					<div class="slider_container">
+						<div class="row">
+							<div class="col-12 col-md-6">
+  								<img src="{{ logo.link }}" class="img-fluid" alt="{{ logo.alt }}">
+							</div>
+							<div class="col-12 col-md-6">
+								<h1 class="slider-title">{{ slider.title }}</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>		
+		<div class="info-line"></div>
+		<section id="info" class="bg-section">
+			<article class="bg-section_container info" style="background-image: url({{ info.background }});">
+				<div class="container-lg">
+					<h2 class="section-title">{{ info.title }}</h2>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+						{% for item in info.slider %}
+							<div class="swiper-slide"><a href="{{ item.full }}" data-lightbox="roadtrip"><img src="{{ item.medium }}" class="img-fluid" alt="{{ info.title }}"></a></div>
+						{% endfor %}
+						</div>
+						<div class="swiper-button-prev" data-toggle="tooltip" data-placement="top" title="Назад"></div>
+    					<div class="swiper-button-next" data-toggle="tooltip" data-placement="bottom" title="Вперед"></div>
+						<ul class="info-table d-none d-lg-inline-block">
+						{% for key,item in info.meta_items %}
+							<li><dfn>{{ key+1 }}</dfn> <span>{{ item }}</span></li>
+						{% endfor %}
+						</ul>
+					</div>
+					<table id="info-table" class="d-lg-none">
+						<tbody>
+						{% for key,item in info.meta_items %}
+						<tr>
+    						<td class="info-table_number"><dfn>{{ key+1 }}</dfn></td>
+							<td class="info-table_title"><span>{{ item }}</span></td>
+						</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</article>
+		</section>
+		<section id="service" class="bg-section">
+			<article class="bg-section_container service" style="background-image: url({{ service.background }});">
+				<h3 class="section-title">{{ service.title }}<br><span>{{ service.span }}</span></h3>
+				<div class="container-lg">
+				<div class="service_carts row">
+					{% for positem in service.category.posts %}
+					<div class="col-lg-4">
+						<h4 class="cart-title">{{ positem.title }}</h4>
+						<div class="card-container">
+							<div class="card text-white shadow mb-3">
+								<div class="card-front" style="background-image: url({{ positem.image }});">
+									<div class="card_button" data-id="{{ positem.id }}">
+										<span>{{ positem.button }}</span>
+									</div>
+								</div>
+  								<div class="card-body" style="background-image: url({{ positem.image }});">
+    								<h5 class="card-title">{{ positem.title }}</h5>
+    								<div class="card-text">{{ positem.text }}</div>
+									<div class="card_button" data-id="{{ positem.id }}">
+										<span>{{ positem.button }}</span>
+									</div>
+  								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				</div>
+			</article>
+		</section>
+		<div class="info-line">
+			<div class="container-lg">
+				<div class="row">
+					<div class="col">
+						<div class="info-line_item">
+							<a href="{{ footer.social.insta.href }}" target="_blank" data-toggle="tooltip" data-placement="top" title="{{ footer.social.insta.title }}"><i class="{{ footer.social.insta.icon }}"></i> <span class="d-none d-lg-inline-block">HIDEHOSTEL</span></a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="info-line_item">
+							<a href="{{ footer.social.fbook.href }}" target="_blank" data-toggle="tooltip" data-placement="top" title="{{ footer.social.fbook.title }}"><i class="{{ footer.social.fbook.icon }}"></i> <span class="d-none d-lg-inline-block">FACEBOOK</span></a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="info-line_item">
+							<a href="{{ footer.social.vk.href }}" target="_blank" data-toggle="tooltip" data-placement="top" title="{{ footer.social.vk.title }}"><i class="{{ footer.social.vk.icon }}"></i> <span class="d-none d-lg-inline-block">HIDEHOSTEL</span></a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="info-line_item">
+							<a href="tel:{{ footer.contact.phone.href }}" data-toggle="tooltip" data-placement="top" title="{{ footer.contact.phone.title }}"><i class="{{ footer.contact.phone.icon }}"></i> <span class="d-none d-lg-inline-block">{{ footer.contact.phone.href }}</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section id="review" class="review-section">
+			<div class="review-section_bef" style="background-image: url({{ review.background }});"></div>
+			<article class="bg-section_review">
+				<div class="container-lg position-relative">
+					<h3 class="section-title">{{ review.title }}<br><span>{{ review.span }}</span></h3>
+					<a class="book-label" href="{{ review.booking.href }}" target="_blank" data-toggle="tooltip" data-placement="left" title="{{ review.booking.title }}"><div class="book-label_img"></div></a>
+				</div>
+				<div class="container-fluid">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+						{% for comitem in review.comment %}
+							<div class="swiper-slide">
+								<div class="card text-white shadow">
+									<div class="card-body">										
+										<div class="comment_item row">
+											<div class="col-4 col-lg-3">
+												<a href="{{ comitem.href }}" target="_blank" data-toggle="tooltip" data-placement="top" title="{{ comitem.name }}"><img class="float-left rounded-circle" src="{{ comitem.avatar }}" width="80" alt="{{ comitem.name }}"></a>
+											</div>
+											<div class="col-8 col-lg-9">
+												<h5 class="card-title">{{ comitem.name }}</h5>
+												<div class="card-meta">
+													<i>{{ comitem.data }}</i>
+												</div>
+											</div>
+											<div class="col">
+												<div class="card-text">
+													<p><i class="fas fa-quote-right"></i> {{ comitem.text }}</p>
+												</div>
+											</div>
+										</div>
+  									</div>
+								</div>
+							</div>
+						{% endfor %}							
+						</div>
+						<div class="swiper-button-prev" data-toggle="tooltip" data-placement="top" title="Вправо"></div>
+    					<div class="swiper-button-next" data-toggle="tooltip" data-placement="top" title="Влево"></div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<section id="map">
+			<article class="section-map">
+				<div id="ya-map">
+					<div class="map-box"></div>
+				</div>
+			</article>
+		</section>
+    </main>
+</div>
+{% endblock %}

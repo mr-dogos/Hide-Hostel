@@ -1,0 +1,21 @@
+<!doctype html>
+<html {{ function('language_attributes') }} class="no-js no-svg">
+{% block head %}
+<head>
+<meta charset="{{ bloginfo( 'charset' ) }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+{{ function('wp_head') }}
+</head>
+{% endblock %}
+<body {{ function('body_class') }} data-spy="scroll" data-target="#navbar-menu" data-offset="0">
+{% block header %}
+{% include "template/header.twig" %}
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block footer %}
+{% include "template/footer.twig" %}
+{% endblock %}
+</body>
+</html>

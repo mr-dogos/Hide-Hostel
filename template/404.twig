@@ -1,0 +1,11 @@
+{% extends "template/main/template_404.twig" %}
+{% block content %}
+<div class="content-page">
+    <main id="error" class="site-main">
+		<div class="error-box">
+			<h3>404</h3>
+			<p>К сожалению, страничка не найдена.</br>Можете перейти на <a href="{{  function('home_url') }}">главную</a> и поскать там.</p>
+		</div>
+    </main>
+</div>
+{% endblock %}
